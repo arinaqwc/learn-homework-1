@@ -1,26 +1,14 @@
-"""
+def compare_str(one, two):
+    if not isinstance(one,str) or not isinstance(two,str):
+        return 0
+    if one == two:
+        return 1
+    if len(one)>len(two) and one != two:
+        return 2
+    if two=='learn' and one != two:
+        return 3
 
-Домашнее задание №1
-
-Условный оператор: Сравнение строк
-
-* Написать функцию, которая принимает на вход две строки
-* Проверить, является ли то, что передано функции, строками. 
-  Если нет - вернуть 0
-* Если строки одинаковые, вернуть 1
-* Если строки разные и первая длиннее, вернуть 2
-* Если строки разные и вторая строка 'learn', возвращает 3
-* Вызвать функцию несколько раз, передавая ей разные праметры 
-  и выводя на экран результаты
-
-"""
-
-def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
-    
-if __name__ == "__main__":
-    main()
+print(compare_str('hello','gjrf'))
+print(compare_str("longer_string", "short")) 
+print(compare_str("short", "learn"))  
+print(compare_str(123, "test"))
