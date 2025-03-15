@@ -1,14 +1,24 @@
-def get_summ(num_one, num_two):
-  try:
-    num_one=int(num_one)
-    num_two=int(num_two)
-    return num_one+num_two
+def discounted(price, discount, max_discount=20):
+    try:
+        price = float(price)
+        discount=float(discount)
+        max_discount=int(max_discount)
+        
+    except (ValueError, TypeError):
+        return 'Введите числа'
+        
 
-  except ValueError:
-    return "Введите числа"
-  
-print(get_summ(2, 2))
-print(get_summ(3, "3"))
-print(get_summ("4", "4"))
-print(get_summ("five", 5))
-print(get_summ("six", "шесть"))
+    if max_discount >= 100:
+        raise ValueError('Слишком большая максимальная скидка')
+    if discount >= max_discount:
+        return price
+    else:
+        return price - (price * discount / 100)
+
+if __name__ == "__main__":
+    print(discounted(100, 2))
+    print(discounted(100, "3"))
+    print(discounted("100", "4.5"))
+    print(discounted("five", 5))
+    print(discounted("сто", "десять"))
+    print(discounted(100.0, 5, "10"))
